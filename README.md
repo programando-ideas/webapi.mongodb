@@ -1,9 +1,9 @@
 ### ASP.NET Core WebApi + MongoDb
 
-Proyecto con operaciones CRUD sobre MongoDb y expuestas en una WebApi hecha con ASP.NET Core.
+Proyecto con operaciones CRUD sobre MongoDb y expuestas en una WebApi hecha con ASP.NET Core 3.1.
 
 ### Video
-[ASP.NET Core WebApi + MongoDb]()
+[ASP.NET Core WebApi + MongoDb](https://youtu.be/mI64TjWxVgI)
 
 ### Herramientas necesarias para este video
 
