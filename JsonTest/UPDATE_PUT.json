@@ -1,0 +1,29 @@
+{
+  "id": "{Id Creado}",
+  "nombre": "Cliente 1 12345",
+  "apellido": "Apellido 1",
+  "edad": 37,
+  "telefonos": [
+    {
+      "id": 1,
+      "tel": "+555555555555"
+    },
+    {
+      "id": 2,
+      "tel": "+111111111111"
+    },
+    {
+      "id": 3,
+      "tel": "+222222222222"
+    },
+    {
+      "id": 4,
+      "tel": "+999999999999"
+    }
+  ],
+  "direccionCliente": {
+    "calle": "Calle 123",
+    "numero": "133",
+    "depto": "3a"
+  }
+}
