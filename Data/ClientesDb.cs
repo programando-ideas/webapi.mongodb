@@ -20,7 +20,7 @@ namespace webapi.mongodb.Data
 
         public List<Cliente> Get()
         {
-            return _clientesCollection.Find(book => true).ToList();
+            return _clientesCollection.Find(cli => true).ToList();
         }
 
         public Cliente GetById(string id)
@@ -28,10 +28,10 @@ namespace webapi.mongodb.Data
             return _clientesCollection.Find<Cliente>(cliente => cliente.Id == id).FirstOrDefault();
         }
 
-        public Cliente Create(Cliente book)
+        public Cliente Create(Cliente cli)
         {
-            _clientesCollection.InsertOne(book);
-            return book;
+            _clientesCollection.InsertOne(cli);
+            return cli;
         }
 
         public void Update(string id, Cliente cli)
