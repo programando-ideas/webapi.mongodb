@@ -22,7 +22,6 @@ services.AddSingleton<IClientesStoreDatabaseSettings>(sp =>
                  sp.GetRequiredService<IOptions<ClientesStoreDatabaseSettings>>().Value);
 
 services.AddSingleton<ClientesDb>();
-services.AddSingleton<ClientesDbQueryable>();
 ```
 
 ## Consultas para realizar con Postman
