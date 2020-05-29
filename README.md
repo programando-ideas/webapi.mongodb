@@ -1,9 +1,10 @@
 # ASP.NET Core WebApi + MongoDb
 
-Proyecto con operaciones CRUD sobre **MongoDb** y expuestas en una WebApi hecha con **ASP.NET Core 3.1***
+Proyecto con operaciones CRUD sobre **MongoDb** expuestas en una WebApi hecha con **ASP.NET Core 3.1***
 
-## Video Youtube
-[𝖠𝖲𝖯.𝖭𝖤𝖳 𝖢𝗈𝗋𝖾 𝖶𝖾𝖻𝖠𝗉𝗂 + 𝖬𝗈𝗇𝗀𝗈𝖣𝖡 🚀🍃🎞](https://youtu.be/mI64TjWxVgI)
+## Videos Youtube (𝖠𝖲𝖯.𝖭𝖤𝖳 𝖢𝗈𝗋𝖾 𝖶𝖾𝖻𝖠𝗉𝗂 + 𝖬𝗈𝗇𝗀𝗈𝖣𝖡 🚀🍃🎞)
+- [🎥 Parte I](https://youtu.be/mI64TjWxVgI)
+- [🎥 Parte II](https://youtube.com/programandoideas)
 
 ### Herramientas necesarias para este video
 
@@ -11,7 +12,8 @@ Proyecto con operaciones CRUD sobre **MongoDb** y expuestas en una WebApi hecha 
 - [x] [MongoDb Compass](https://www.mongodb.com/download-center/compass)
 - [x] [Visual Studio 2019 Community](https://visualstudio.microsoft.com/es/vs/community/)
 - [x] [.net Core](https://dotnet.microsoft.com/download)
-- [x] [Postman](https://www.postman.com/downloads/)
+- [x] [Postman free](https://www.postman.com/downloads/)
+- [x] [SoapUI Open source](https://www.soapui.org/downloads/soapui/)
 
 ## Startup.cs
 ```csharp
@@ -22,11 +24,19 @@ services.AddSingleton<IClientesStoreDatabaseSettings>(sp =>
                  sp.GetRequiredService<IOptions<ClientesStoreDatabaseSettings>>().Value);
 
 services.AddSingleton<ClientesDb>();
+services.AddSingleton<ClientesDbAsync>();
+services.AddSingleton<ClientesDbQueryable>();
+
+// http://mongodb.github.io/mongo-csharp-driver/2.0/reference/driver/connecting/#re-use
+services.AddSingleton<IClientSettingsService, ClientSettingsServiceMongoDB>();
 ```
 
-## Consultas para realizar con Postman
+## Elemplo de URLs para utilizar con Postman
 #### GET
 - http://localhost:5000/api/clientes/5eac64158a01245a2c89fb0c
+- http://localhost:5000/api/clientesiq/getbydir/123
+- http://localhost:5000/api/clientesasync
+
 #### POST
 - http://localhost:5000/api/clientes
 ```json
@@ -94,6 +104,13 @@ services.AddSingleton<ClientesDb>();
 ```
 #### DEL
 - http://localhost:5000/api/clientes/5eac64158a01245a2c89fb0c
+
+## Directorio JsonTest
+#### Json con ejemplos para crear y actualizar un cliente
+- CREATE_POST.json
+- UPDATE_PUT.json
+#### Proyecto de SoapUI para ejecutar el "Load Test"
+- LoadTest_MongoDB_API.xml
 
 ------------
 #### Programando Ideas 2020
