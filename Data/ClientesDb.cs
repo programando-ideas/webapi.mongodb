@@ -10,9 +10,12 @@ namespace webapi.mongodb.Data
     {
         private readonly IMongoCollection<Cliente> _clientesCollection;
 
-        public ClientesDb(IClientesStoreDatabaseSettings settings)
+        public ClientesDb(IClientesStoreDatabaseSettings settings,
+                          IClientSettingsService clientSettings)
         {
-            var mdbClient = new MongoClient(settings.ConnectionString);
+            // var mdbClient = new MongoClient(settings.ConnectionString);
+            var mdbClient = clientSettings.Client;
+
             var database = mdbClient.GetDatabase(settings.DatabaseName);
 
             _clientesCollection = database.GetCollection<Cliente>(settings.ClientesCollectionName);

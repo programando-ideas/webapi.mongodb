@@ -1,15 +1,8 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.HttpsPolicy;
-using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
 using webapi.mongodb.Data;
 using webapi.mongodb.Data.Configuration;
@@ -38,6 +31,11 @@ namespace webapi.mongodb
                             sp.GetRequiredService<IOptions<ClientesStoreDatabaseSettings>>().Value);
 
             services.AddSingleton<ClientesDb>();
+            services.AddSingleton<ClientesDbAsync>();
+            services.AddSingleton<ClientesDbQueryable>();
+
+            // http://mongodb.github.io/mongo-csharp-driver/2.0/reference/driver/connecting/#re-use
+            services.AddSingleton<IClientSettingsService, ClientSettingsServiceMongoDB>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
