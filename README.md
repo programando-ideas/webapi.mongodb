@@ -4,7 +4,7 @@ Proyecto con operaciones CRUD sobre **MongoDb** expuestas en una WebApi hecha co
 
 ## Videos Youtube (𝖠𝖲𝖯.𝖭𝖤𝖳 𝖢𝗈𝗋𝖾 𝖶𝖾𝖻𝖠𝗉𝗂 + 𝖬𝗈𝗇𝗀𝗈𝖣𝖡 🚀🍃🎞)
 - [🎥 Parte I](https://youtu.be/mI64TjWxVgI)
-- [🎥 Parte II](https://youtube.com/programandoideas)
+- [🎥 Parte II](https://youtu.be/j2f07ZGKqpo)
 
 ### Herramientas necesarias para este video
 
@@ -14,6 +14,13 @@ Proyecto con operaciones CRUD sobre **MongoDb** expuestas en una WebApi hecha co
 - [x] [.net Core](https://dotnet.microsoft.com/download)
 - [x] [Postman free](https://www.postman.com/downloads/)
 - [x] [SoapUI Open source](https://www.soapui.org/downloads/soapui/)
+
+### Links con Documentación utilizada en los Videos
+- [x] [MongoDB db.createUser](https://docs.mongodb.com/manual/reference/method/db.createUser/)
+- [x] [MongoClient instance global](http://mongodb.github.io/mongo-csharp-driver/2.0/reference/driver/connecting/#re-use)
+- [x] [IQueryable Interface](https://docs.microsoft.com/en-us/dotnet/api/system.linq.iqueryable?view=netcore-3.1)
+- [x] [IMongoQueryable](https://mongodb.github.io/mongo-csharp-driver/2.4/apidocs/html/Methods_T_MongoDB_Driver_Linq_IMongoQueryable_1.htm)
+- [x] [Async dotnet](https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/concepts/async/)
 
 ## Startup.cs
 ```csharp
@@ -30,6 +37,9 @@ services.AddSingleton<ClientesDbQueryable>();
 // http://mongodb.github.io/mongo-csharp-driver/2.0/reference/driver/connecting/#re-use
 services.AddSingleton<IClientSettingsService, ClientSettingsServiceMongoDB>();
 ```
+
+#### Logger en acción
+![](https://raw.githubusercontent.com/programando-ideas/webapi.mongodb/master/Imagenes/img_log_mongodb.PNG)
 
 ## Elemplo de URLs para utilizar con Postman
 #### GET
@@ -110,7 +120,9 @@ services.AddSingleton<IClientSettingsService, ClientSettingsServiceMongoDB>();
 - CREATE_POST.json
 - UPDATE_PUT.json
 #### Proyecto de SoapUI para ejecutar el "Load Test"
-- LoadTest_MongoDB_API.xml
+- [LoadTest_MongoDB_API.xml](https://raw.githubusercontent.com/programando-ideas/webapi.mongodb/master/JsonTest/LoadTest_MongoDB_API.xml)
+
+![](https://raw.githubusercontent.com/programando-ideas/webapi.mongodb/master/Imagenes/img_soapui_test.PNG)
 
 ------------
 #### Programando Ideas 2020
