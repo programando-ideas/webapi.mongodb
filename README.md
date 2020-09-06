@@ -124,6 +124,27 @@ services.AddSingleton<IClientSettingsService, ClientSettingsServiceMongoDB>();
 
 ![](https://raw.githubusercontent.com/programando-ideas/webapi.mongodb/master/Imagenes/img_soapui_test.PNG)
 
+## Soporte para docker y docker-compose
+
+Se agrega docker-compose.yml para poder correr ambas imágenes (webapi.mongodb y mongodb).
+
+Mediante el script *mongo-init.js* se realiza dentro del contenedor de mongodb la inicialización.
+
+Pasos para la construcción:
+
+```
+docker-compose build
+```
+
+Ejecución:
+
+```
+docker-compose up
+```
+
+
+
+
 ------------
 #### Programando Ideas 2020
 <p>
