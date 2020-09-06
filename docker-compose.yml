@@ -1,0 +1,24 @@
+version: "3.6"
+services:
+    mongodb:
+        container_name: mongodb
+        image: mongo:latest
+        environment:
+          MONGO_INITDB_ROOT_USERNAME: root
+          MONGO_INITDB_ROOT_PASSWORD: root123
+          MONGO_INITDB_DATABASE: ClientesStoreDb
+        ports:
+          - 27017:27017
+        volumes:
+          - ./mongo-init.js:/docker-entrypoint-initdb.d/mongo-init.js:ro
+                
+    webapi.mongodb:
+        container_name: webapi.mongodb
+        ports:
+            - 5000:80
+        image: webapi.mongodb
+        build:
+            context: .
+        restart: on-failure        
+        depends_on:
+            - mongodb     
